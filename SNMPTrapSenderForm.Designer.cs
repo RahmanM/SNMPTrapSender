@@ -51,8 +51,8 @@
             // tblMaster
             // 
             this.tblMaster.ColumnCount = 2;
-            this.tblMaster.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblMaster.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tblMaster.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tblMaster.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.tblMaster.Controls.Add(this.cmdSend, 1, 2);
             this.tblMaster.Controls.Add(this.grpMessage, 0, 1);
             this.tblMaster.Controls.Add(this.groupBox2, 0, 0);
@@ -70,9 +70,9 @@
             // cmdSend
             // 
             this.cmdSend.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmdSend.Location = new System.Drawing.Point(273, 488);
+            this.cmdSend.Location = new System.Drawing.Point(424, 488);
             this.cmdSend.Name = "cmdSend";
-            this.cmdSend.Size = new System.Drawing.Size(265, 34);
+            this.cmdSend.Size = new System.Drawing.Size(114, 34);
             this.cmdSend.TabIndex = 7;
             this.cmdSend.Text = "Send Trap";
             this.cmdSend.UseVisualStyleBackColor = true;
@@ -113,8 +113,8 @@
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 105F));
             this.tableLayoutPanel2.Controls.Add(this.txtPort, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.txtHost, 1, 0);
@@ -138,17 +138,17 @@
             // txtPort
             // 
             this.txtPort.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtPort.Location = new System.Drawing.Point(215, 43);
+            this.txtPort.Location = new System.Drawing.Point(123, 43);
             this.txtPort.Name = "txtPort";
-            this.txtPort.Size = new System.Drawing.Size(206, 22);
-            this.txtPort.TabIndex = 4;
+            this.txtPort.Size = new System.Drawing.Size(298, 22);
+            this.txtPort.TabIndex = 2;
             // 
             // txtHost
             // 
             this.txtHost.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtHost.Location = new System.Drawing.Point(215, 3);
+            this.txtHost.Location = new System.Drawing.Point(123, 3);
             this.txtHost.Name = "txtHost";
-            this.txtHost.Size = new System.Drawing.Size(206, 22);
+            this.txtHost.Size = new System.Drawing.Size(298, 22);
             this.txtHost.TabIndex = 1;
             // 
             // label1
@@ -158,7 +158,7 @@
             this.label1.Location = new System.Drawing.Point(3, 3);
             this.label1.Margin = new System.Windows.Forms.Padding(3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(206, 34);
+            this.label1.Size = new System.Drawing.Size(114, 34);
             this.label1.TabIndex = 5;
             this.label1.Text = "Host";
             // 
@@ -169,7 +169,7 @@
             this.label2.Location = new System.Drawing.Point(3, 43);
             this.label2.Margin = new System.Windows.Forms.Padding(3);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(206, 34);
+            this.label2.Size = new System.Drawing.Size(114, 34);
             this.label2.TabIndex = 6;
             this.label2.Text = "Port To Send";
             // 
@@ -177,11 +177,11 @@
             // 
             this.tableLayoutPanel2.SetColumnSpan(this.txtDescription, 2);
             this.txtDescription.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtDescription.Location = new System.Drawing.Point(215, 83);
+            this.txtDescription.Location = new System.Drawing.Point(123, 83);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtDescription.Size = new System.Drawing.Size(311, 54);
+            this.txtDescription.Size = new System.Drawing.Size(403, 54);
             this.txtDescription.TabIndex = 3;
             this.txtDescription.TextChanged += new System.EventHandler(this.txtDescription_TextChanged);
             // 
@@ -192,16 +192,16 @@
             this.label3.Location = new System.Drawing.Point(3, 83);
             this.label3.Margin = new System.Windows.Forms.Padding(3);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(206, 54);
+            this.label3.Size = new System.Drawing.Size(114, 54);
             this.label3.TabIndex = 8;
             this.label3.Text = "Description";
             // 
             // txtResource
             // 
             this.txtResource.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtResource.Location = new System.Drawing.Point(215, 143);
+            this.txtResource.Location = new System.Drawing.Point(123, 143);
             this.txtResource.Name = "txtResource";
-            this.txtResource.Size = new System.Drawing.Size(206, 22);
+            this.txtResource.Size = new System.Drawing.Size(298, 22);
             this.txtResource.TabIndex = 4;
             this.txtResource.TextChanged += new System.EventHandler(this.txtResource_TextChanged);
             // 
@@ -212,7 +212,7 @@
             this.label4.Location = new System.Drawing.Point(3, 143);
             this.label4.Margin = new System.Windows.Forms.Padding(3);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(206, 34);
+            this.label4.Size = new System.Drawing.Size(114, 34);
             this.label4.TabIndex = 10;
             this.label4.Text = "Resource";
             // 

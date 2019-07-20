@@ -1,21 +1,14 @@
 ﻿using SnmpSharpNet;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SNMP.Trap.Sender
 {
     public partial class SNMPTrapSenderForm : Form
     {
-        private Guid _key;
+        private string _key;
 
         public SNMPTrapSenderForm()
         {
@@ -57,11 +50,11 @@ namespace SNMP.Trap.Sender
         {
             txtHost.Text = GetLocalIPAddress();
             txtPort.Text = 162.ToString();
+            _key = Guid.NewGuid().ToString();
 
             var message = GetMessage();
             txtMessage.Text = message;
 
-            _key = Guid.NewGuid();
         }
 
         private string GetMessage()
