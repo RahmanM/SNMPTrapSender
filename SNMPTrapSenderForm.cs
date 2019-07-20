@@ -15,6 +15,8 @@ namespace SNMP.Trap.Sender
 {
     public partial class SNMPTrapSenderForm : Form
     {
+        private Guid _key;
+
         public SNMPTrapSenderForm()
         {
             InitializeComponent();
@@ -58,6 +60,8 @@ namespace SNMP.Trap.Sender
 
             var message = GetMessage();
             txtMessage.Text = message;
+
+            _key = Guid.NewGuid();
         }
 
         private string GetMessage()
@@ -66,10 +70,11 @@ namespace SNMP.Trap.Sender
 $@"Source: {GetLocalIPAddress()} 
 Node: {GetLocalIPAddress()} 
 Type: Event 
-Description: 
+Description: {txtDescription.Text}
 Severity: Critical
-Resource:
+Resource: {txtResource.Text}
 Date and Time: {DateTime.Now.ToString()}
+Key: {_key}
 ";
 
             return message;
@@ -79,12 +84,27 @@ Date and Time: {DateTime.Now.ToString()}
         {
             try
             {
+                if (string.IsNullOrEmpty(txtDescription.Text)) throw new Exception("Please provide a description for the message to be sent.");
+                if (string.IsNullOrEmpty(txtResource.Text)) throw new Exception("Please provide a resource name e.g. Customers database etc");
+
                 SendTrap(txtMessage.Text, txtHost.Text, Int32.Parse(txtPort.Text));
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void txtDescription_TextChanged(object sender, EventArgs e)
+        {
+            var message = GetMessage();
+            txtMessage.Text = message;
+        }
+
+        private void txtResource_TextChanged(object sender, EventArgs e)
+        {
+            var message = GetMessage();
+            txtMessage.Text = message;
         }
     }
 }
