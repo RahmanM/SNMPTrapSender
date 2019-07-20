@@ -15,15 +15,9 @@ namespace SNMP.Trap.Sender
 {
     public partial class SNMPTrapSenderForm : Form
     {
-        private string _Message = "";
         public SNMPTrapSenderForm()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            SendTrap(MessageBox.Text, GetLocalIPAddress(), 162);
         }
 
         private static void SendTrap(string message, string ipAddressToSend, int portToSend)
@@ -41,7 +35,7 @@ namespace SNMP.Trap.Sender
             // Send the trap to the localhost port 162
             agent.SendV1Trap(new IpAddress(ipAddressToSend), portToSend, "public",
                              new Oid("1.3.6.1.2.1.1.1.0"), new IpAddress(GetLocalIPAddress()),
-                             SnmpConstants.LinkUp, 0, 13432, col);
+                             SnmpConstants.WarmStart, 0, 13432, col);
         }
 
         public static string GetLocalIPAddress()
@@ -59,15 +53,17 @@ namespace SNMP.Trap.Sender
 
         private void SNMPTrapSenderForm_Load(object sender, EventArgs e)
         {
+            txtHost.Text = GetLocalIPAddress();
+            txtPort.Text = 162.ToString();
+
             var message = GetMessage();
-            MessageBox.Text = message;
+            txtMessage.Text = message;
         }
 
         private string GetMessage()
         {
             var message =
-                $@"
-Source: {GetLocalIPAddress()} 
+$@"Source: {GetLocalIPAddress()} 
 Node: {GetLocalIPAddress()} 
 Type: Event 
 Description: 
@@ -77,6 +73,18 @@ Date and Time: {DateTime.Now.ToString()}
 ";
 
             return message;
+        }
+
+        private void cmdSend_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SendTrap(txtMessage.Text, txtHost.Text, Int32.Parse(txtPort.Text));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
